@@ -3,6 +3,8 @@ const calculation = document.getElementById("calculationText");
 const clear = document.getElementById("clear");
 const back = document.getElementById("back");
 const equal = document.getElementById("equal");
+const light = document.getElementById("light");
+const dark = document.getElementById("dark");
 
 function insert(num) {
     calculation.textContent += num;
@@ -24,3 +26,26 @@ equal.addEventListener("click", function () {
     //calculation.textContent = result.textContent;
     console.log("equal");
 });
+
+light.addEventListener("click", function () {
+    document.body.classList.remove('dark');
+    document.body.classList.add('light');
+    dark.classList.remove('active')
+    light.classList.add('active')
+});
+
+dark.addEventListener("click", function (e) {
+    document.body.classList.remove('light');
+    document.body.classList.add('dark');
+    light.classList.remove('active')
+    dark.classList.add('active')
+});
+
+if (document.body.classList.contains('light')) {
+    console.log('hii');
+    dark.classList.remove('active')
+    light.classList.add('active')
+} else {
+    light.classList.remove('active')
+    dark.classList.add('active')
+}

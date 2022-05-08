@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="dark">
     <div class="wrapper">
         <div class="calculator">
             <div class="screen">
@@ -30,10 +30,10 @@
                 </div>
                 <div class="mode">
                     <div class="action">
-                        <span id="light" class="ico">
+                        <span id="light" class="ico" title="Light Mode">
                             <i class="fal fa-sun"></i>
                         </span>
-                        <span id="dark" class="ico active">
+                        <span id="dark" class="ico" title="Dark Mode">
                             <i class="fal fa-moon"></i>
                         </span>
                     </div>
@@ -52,20 +52,20 @@
                     <tr>
                         <td>
                             <button type="button" class="btn operator" id="clear">
-                                <i class="fal fa-eraser"></i>
+                                <i class="fal fa-eraser" title="All Clear"></i>
                             </button>
                         </td>
                         <td>
                             <button type="button" class="btn operator" id="back">
-                                <i class="fal fa-backspace"></i>
+                                <i class="fal fa-backspace" title="Delete"></i>
                             </button>
                         </td>
                         <td><button type="button" class="btn math" onclick="insert('÷')">
-                                <i class="fal fa-divide"></i>
+                                <i class="fal fa-divide" title="Divide"></i>
                             </button></td>
                         <td>
                             <button type="button" class="btn math" onclick="insert('*')">
-                                <i class="fal fa-times"></i>
+                                <i class="fal fa-times" title="Multiply"></i>
                             </button>
                         </td>
                     </tr>
@@ -75,7 +75,7 @@
                         <td><button type="button" class="btn" onclick="insert(9)">9</button></td>
                         <td>
                             <button type="button" class="btn math" onclick="insert('-')">
-                                <i class="fal fa-minus"></i>
+                                <i class="fal fa-minus" title="Substract"></i>
                             </button>
                         </td>
                     </tr>
@@ -85,7 +85,7 @@
                         <td><button type="button" class="btn" onclick="insert(6)">6</button></td>
                         <td>
                             <button type="button" class="btn math" onclick="insert('+')">
-                                <i class="fal fa-plus"></i>
+                                <i class="fal fa-plus" title="Addition"></i>
                             </button>
                         </td>
                     </tr>
@@ -95,7 +95,7 @@
                         <td><button type="button" class="btn" onclick="insert(3)">3</button></td>
                         <td rowspan="2">
                             <button type="button" class="btn operator equal" id="equal" value="=">
-                                <i class="fal fa-equals"></i>
+                                <i class="fal fa-equals" title="Equal"></i>
                             </button>
                         </td>
                     </tr>
