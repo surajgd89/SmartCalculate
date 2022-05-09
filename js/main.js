@@ -5,9 +5,15 @@ const back = document.getElementById("back");
 const equal = document.getElementById("equal");
 const light = document.getElementById("light");
 const dark = document.getElementById("dark");
+const time = document.getElementById("time");
+const date = document.getElementById("date");
 
 function insert(num) {
     calculation.textContent += num;
+    // if (calculation.textContent.slice(-1) === "+") {
+    //     console.log("yes");
+    //     return num;
+    // }
 }
 
 clear.addEventListener("click", function () {
@@ -23,8 +29,8 @@ back.addEventListener("click", function () {
 equal.addEventListener("click", function () {
     let exp = calculation.textContent;
     result.textContent = eval(exp);
-    //calculation.textContent = result.textContent;
-    console.log("equal");
+    calculation.textContent = result.textContent;
+    //console.log("equal");
 });
 
 light.addEventListener("click", function () {
@@ -49,3 +55,38 @@ if (document.body.classList.contains('light')) {
     light.classList.remove('active')
     dark.classList.add('active')
 }
+
+
+//TIME
+
+var nowdate = new Date();
+function currentTime(nowdate) {
+    var hours = nowdate.getHours();
+    var minutes = nowdate.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+}
+
+function currentDate(nowdate) {
+    var result = nowdate.toLocaleDateString("en-GB", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    });
+    let todaydate = result.split("/").join("-");
+    return todaydate;
+}
+
+setInterval(function () {
+    let currenttime = currentTime(nowdate);
+    let currentdate = currentDate(nowdate);
+    time.textContent = currenttime;
+    date.textContent = currentdate;
+}, 1000)
+
+
+

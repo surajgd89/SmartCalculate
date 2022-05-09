@@ -33,7 +33,7 @@ body {
             overflow: hidden;
             margin: auto;
             box-shadow: 0 0 6px 4px #e1e1e1;
-            padding: 10px;
+            padding: 5px;
 
             .screen {
                 background: var(--primary);
@@ -47,6 +47,10 @@ body {
                     font-size: 12px;
                     color: var(--color);
                     padding: 10px 15px;
+
+                    .time {
+                        text-transform: uppercase;
+                    }
                 }
 
                 .mode {
@@ -85,6 +89,7 @@ body {
                     .calculation {
                         font-size: 14px;
                         color: var(--color);
+                        opacity: 0.5;
                         overflow: auto;
                     }
 
