@@ -3,12 +3,29 @@
     padding: 0;
 }
 
+:root {
+    --text: #2b3044;
+    --line: #275efe;
+    --font-size: 16px;
+    --duration: 0.44s;
+    --duration-line: 0.84s;
+}
+
+* {
+    box-sizing: inherit;
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
 html {
     height: 100%;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background-color: #e8e8e8;
+    background-color: #cfd9df;
     font-family: 'Poppins', sans-serif;
     line-height: 1.5;
     min-height: 100%;
@@ -17,152 +34,225 @@ body {
         --primary: #22252d;
         --secondary: #292d36;
         --color: #fff;
+        --shadow: #cfd9df;
     }
     &.light {
         --primary: #fff;
-        --secondary: #e8e8e8;
+        --secondary: #eaf1f5;
+        --shadow: #cfd9df;
         --color: #000;
     }
 
     .wrapper {
         display: flex;
         height: 100vh;
-        .calculator {
-            border-radius: 20px;
-            background: var(--primary);
-            overflow: hidden;
+
+        .content {
             margin: auto;
-            box-shadow: 0 0 6px 4px #e1e1e1;
-            padding: 5px;
-
-            .screen {
+            .calculator {
+                border-radius: 20px;
                 background: var(--primary);
-                margin: 20px;
-                margin: auto;
+                box-shadow: 0 0 6px 4px var(--shadow);
+                padding: 5px;
 
-                .todayStatus {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    font-size: 12px;
-                    color: var(--color);
-                    padding: 10px 15px;
+                .screen {
+                    background: var(--primary);
+                    margin: 20px;
+                    margin: auto;
 
-                    .time {
-                        text-transform: uppercase;
-                    }
-                }
-
-                .mode {
-                    .action {
-                        background-color: var(--secondary);
-                        padding: 8px 15px;
-                        border-radius: 30px;
-                        width: 60px;
-                        margin: 0 auto;
-                        margin-top: 5px;
+                    .todayStatus {
                         display: flex;
+                        align-items: center;
                         justify-content: space-between;
+                        font-size: 12px;
+                        color: var(--color);
+                        padding: 10px 15px;
 
-                        .ico {
-                            color: var(--color);
-                            opacity: 0.5;
-                            cursor: pointer;
+                        .time {
+                            text-transform: uppercase;
+                        }
+                    }
 
-                            &.active {
-                                opacity: 1;
+                    .mode {
+                        .action {
+                            background-color: var(--secondary);
+                            padding: 5px 12px;
+                            border-radius: 30px;
+                            width: 60px;
+                            margin: 0 auto;
+                            margin-top: 5px;
+                            display: flex;
+                            justify-content: space-between;
+
+                            .ico {
+                                color: var(--color);
+                                opacity: 0.5;
+                                cursor: pointer;
+
+                                &.active {
+                                    opacity: 1;
+                                }
                             }
                         }
                     }
+
+                    .screenContent {
+                        text-align: right;
+                        padding: 15px 20px;
+                        user-select: none;
+                        min-height: 120px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        align-items: flex-end;
+
+                        .calculation {
+                            font-size: 14px;
+                            color: var(--color);
+                            opacity: 0.5;
+                            overflow: auto;
+                        }
+
+                        .result {
+                            font-size: 45px;
+                            color: var(--color);
+                            font-weight: 500;
+                        }
+                    }
                 }
+                .operation {
+                    background-color: var(--secondary);
+                    border-radius: 15px;
+                    padding: 5px 5px 30px 5px;
+                    position: relative;
 
-                .screenContent {
-                    text-align: right;
-                    padding: 15px 20px;
-                    user-select: none;
-                    min-height: 100px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    align-items: flex-end;
-
-                    .calculation {
-                        font-size: 14px;
-                        color: var(--color);
-                        opacity: 0.5;
-                        overflow: auto;
+                    &::after {
+                        content: '';
+                        height: 3px;
+                        border-radius: 3px;
+                        width: 25%;
+                        position: absolute;
+                        top: auto;
+                        bottom: 15px;
+                        left: 0;
+                        right: 0;
+                        background-color: var(--primary);
+                        margin: auto;
                     }
 
-                    .result {
-                        font-size: 45px;
-                        color: var(--color);
-                        font-weight: 500;
+                    table {
+                        border-collapse: collapse;
+                        width: 100%;
+
+                        tr,
+                        td {
+                            border-collapse: collapse;
+                            padding: 5px;
+
+                            .btn {
+                                width: 100%;
+                                min-width: 60px;
+                                min-height: 60px;
+                                height: 100%;
+                                font-size: 20px;
+                                cursor: pointer;
+                                border: none;
+                                background: var(--primary);
+                                color: var(--color);
+                                outline: none;
+                                border-radius: 7.5px;
+
+                                &.equal {
+                                    min-height: calc(60px * 2 + 10px);
+                                }
+
+                                &.zero {
+                                    min-width: calc(60px * 2);
+                                }
+
+                                &:hover {
+                                    background-color: var(--primary);
+                                    transition: all 300ms ease-in-out;
+                                }
+                            }
+
+                            .operator {
+                                color: #34a853;
+                            }
+
+                            .math {
+                                color: #ea4335;
+                            }
+                        }
                     }
                 }
             }
-            .operation {
-                background-color: var(--secondary);
-                border-radius: 15px;
-                padding: 10px 10px 40px 10px;
-                position: relative;
+            .app-name {
+                text-align: center;
+                font-size: 15px;
+                margin-top: 20px;
+                color: var(--text);
+                font-size: var(--font-size);
+                line-height: var(--font-size);
 
-                &::after {
-                    content: '';
-                    height: 3px;
-                    border-radius: 3px;
-                    width: 25%;
-                    position: absolute;
-                    top: auto;
-                    bottom: 15px;
-                    left: 0;
-                    right: 0;
-                    background-color: var(--primary);
-                    margin: auto;
-                }
-
-                table {
-                    border-collapse: collapse;
-                    width: 100%;
-
-                    tr,
-                    td {
-                        border-collapse: collapse;
-                        padding: 5px;
-
-                        .btn {
-                            width: 100%;
-                            min-width: 60px;
-                            min-height: 60px;
-                            height: 100%;
-                            font-size: 20px;
-                            cursor: pointer;
-                            border: none;
-                            background: var(--primary);
-                            color: var(--color);
-                            outline: none;
-                            border-radius: 7.5px;
-
-                            &.equal {
-                                min-height: calc(60px * 2 + 10px);
-                            }
-
-                            &.zero {
-                                min-width: calc(60px * 2);
-                            }
-
-                            &:hover {
-                                background-color: var(--primary);
-                                transition: all 300ms ease-in-out;
+                .link {
+                    display: inline-block;
+                    position: relative;
+                    text-decoration: none;
+                    color: var(--text);
+                    div {
+                        overflow: hidden;
+                        &:first-child {
+                            display: flex;
+                            overflow: hidden;
+                            text-shadow: 0 var(--font-size) 0 var(--text);
+                        }
+                        &:last-child {
+                            position: absolute;
+                            pointer-events: none;
+                            right: 0;
+                            left: 0;
+                            bottom: -3px;
+                            height: 5px;
+                            svg {
+                                display: block;
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                width: 300%;
+                                height: 5px;
+                                fill: none;
+                                stroke: var(--line);
+                                stroke-width: 1.5px;
+                                stroke-linecap: round;
+                                stroke-dasharray: 63.5px 128px;
+                                stroke-dashoffset: var(--line-offset, 190.25px);
+                                transform: translateX(var(--line-x))
+                                    translateZ(0);
+                                transition: transform var(--line-d, 0s),
+                                    stroke-dashoffset var(--line-d, 0s);
                             }
                         }
-
-                        .operator {
-                            color: #39fbd7;
+                        span {
+                            display: block;
+                            backface-visibility: hidden;
+                            font-style: normal;
+                            transition: transform var(--duration) ease;
+                            transform: translateY(var(--m, 0));
+                            $i: 1;
+                            @while $i < 12 {
+                                &:nth-child(#{$i}) {
+                                    transition-delay: $i / 20 + s;
+                                }
+                                $i: $i + 1;
+                            }
                         }
-
-                        .math {
-                            color: #f47a7a;
-                        }
+                    }
+                    &:hover {
+                        --m: calc(var(--font-size) * -1);
+                        --line-d: var(--duration-line);
+                        --line-x: 65.66%;
+                        --line-offset: 63.5px;
                     }
                 }
             }

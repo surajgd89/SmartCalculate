@@ -18,90 +18,94 @@
 
 <body class="dark">
     <div class="wrapper">
-        <div class="calculator">
-            <div class="screen">
-                <div class="todayStatus">
-                    <div class="time" id="time">MM:HH</div>
-                    <div class="date" id="date">DD/MM/YYYY</div>
-                </div>
-                <div class="mode">
-                    <div class="action">
-                        <span id="light" class="ico" title="Light Mode">
-                            <i class="fal fa-sun"></i>
-                        </span>
-                        <span id="dark" class="ico" title="Dark Mode">
-                            <i class="fal fa-moon"></i>
-                        </span>
+        <div class="content">
+            <div class="calculator">
+                <div class="screen">
+                    <div class="todayStatus">
+                        <div class="time" id="time">MM:HH</div>
+                        <div class="date" id="date">DD/MM/YYYY</div>
+                    </div>
+                    <div class="mode">
+                        <div class="action">
+                            <span id="light" class="ico" title="Light Mode">
+                                <i class="fal fa-sun"></i>
+                            </span>
+                            <span id="dark" class="ico" title="Dark Mode">
+                                <i class="fal fa-moon"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="screenContent">
+                        <p class="calculation">
+                            <span id="calculationText"></span>
+                        </p>
+                        <p class="result">
+                            <span id="resultText">0</span>
+                        </p>
                     </div>
                 </div>
-                <div class="screenContent">
-                    <p class="calculation">
-                        <span id="calculationText"></span>
-                    </p>
-                    <p class="result">
-                        <span id="resultText">0</span>
-                    </p>
+                <div class="operation">
+                    <table>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn operator" id="clear">
+                                    <i class="fal fa-eraser" title="All Clear"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn operator" id="back">
+                                    <i class="fal fa-backspace" title="Delete"></i>
+                                </button>
+                            </td>
+                            <td><button type="button" class="btn math" onclick="insert('÷')">
+                                    <i class="fal fa-divide" title="Divide"></i>
+                                </button></td>
+                            <td>
+                                <button type="button" class="btn math" onclick="insert('*')">
+                                    <i class="fal fa-times" title="Multiply"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" class="btn" onclick="insert(7)">7</button></td>
+                            <td><button type="button" class="btn" onclick="insert(8)">8</button></td>
+                            <td><button type="button" class="btn" onclick="insert(9)">9</button></td>
+                            <td>
+                                <button type="button" class="btn math" onclick="insert('-')">
+                                    <i class="fal fa-minus" title="Substract"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" class="btn" onclick="insert(4)">4</button></td>
+                            <td><button type="button" class="btn" onclick="insert(5)">5</button></td>
+                            <td><button type="button" class="btn" onclick="insert(6)">6</button></td>
+                            <td>
+                                <button type="button" class="btn math" onclick="insert('+')">
+                                    <i class="fal fa-plus" title="Addition"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" class="btn" onclick="insert(1)">1</button></td>
+                            <td><button type="button" class="btn" onclick="insert(2)">2</button></td>
+                            <td><button type="button" class="btn" onclick="insert(3)">3</button></td>
+                            <td rowspan="2">
+                                <button type="button" class="btn operator equal" id="equal" value="=">
+                                    <i class="fal fa-equals" title="Equal"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="button" onclick="insert(0)" class="btn zero">0</button>
+                            </td>
+                            <td><button class="btn" type="button" onclick="insert('.')">.</button></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <div class="operation">
-                <table>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn operator" id="clear">
-                                <i class="fal fa-eraser" title="All Clear"></i>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn operator" id="back">
-                                <i class="fal fa-backspace" title="Delete"></i>
-                            </button>
-                        </td>
-                        <td><button type="button" class="btn math" onclick="insert('÷')">
-                                <i class="fal fa-divide" title="Divide"></i>
-                            </button></td>
-                        <td>
-                            <button type="button" class="btn math" onclick="insert('*')">
-                                <i class="fal fa-times" title="Multiply"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><button type="button" class="btn" onclick="insert(7)">7</button></td>
-                        <td><button type="button" class="btn" onclick="insert(8)">8</button></td>
-                        <td><button type="button" class="btn" onclick="insert(9)">9</button></td>
-                        <td>
-                            <button type="button" class="btn math" onclick="insert('-')">
-                                <i class="fal fa-minus" title="Substract"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><button type="button" class="btn" onclick="insert(4)">4</button></td>
-                        <td><button type="button" class="btn" onclick="insert(5)">5</button></td>
-                        <td><button type="button" class="btn" onclick="insert(6)">6</button></td>
-                        <td>
-                            <button type="button" class="btn math" onclick="insert('+')">
-                                <i class="fal fa-plus" title="Addition"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><button type="button" class="btn" onclick="insert(1)">1</button></td>
-                        <td><button type="button" class="btn" onclick="insert(2)">2</button></td>
-                        <td><button type="button" class="btn" onclick="insert(3)">3</button></td>
-                        <td rowspan="2">
-                            <button type="button" class="btn operator equal" id="equal" value="=">
-                                <i class="fal fa-equals" title="Equal"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button type="button" onclick="insert(0)" class="btn zero">0</button>
-                        </td>
-                        <td><button class="btn" type="button" onclick="insert('.')">.</button></td>
-                    </tr>
-                </table>
-            </div>
+            <div class="app-name">Developed By <a href="https://surajgd89.github.io/SmartBio/" target="_blank"
+                    class="link"> Suraj Patil </a></div>
         </div>
     </div>
     <!-- JS  -->
