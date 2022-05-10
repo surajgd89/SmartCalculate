@@ -28,29 +28,31 @@ equal.addEventListener("click", function () {
     calculation.textContent = result.textContent;
 });
 
-
 // THEME SWITCH
 light.addEventListener("click", function () {
     document.body.classList.remove('dark');
     document.body.classList.add('light');
-    dark.classList.remove('active')
-    light.classList.add('active')
+    dark.classList.remove('active');
+    light.classList.add('active');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff');
 });
 
 dark.addEventListener("click", function (e) {
     document.body.classList.remove('light');
     document.body.classList.add('dark');
-    light.classList.remove('active')
-    dark.classList.add('active')
+    light.classList.remove('active');
+    dark.classList.add('active');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#22252d');
 });
 
 if (document.body.classList.contains('light')) {
-    console.log('hii');
-    dark.classList.remove('active')
-    light.classList.add('active')
+    dark.classList.remove('active');
+    light.classList.add('active');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff');
 } else {
-    light.classList.remove('active')
-    dark.classList.add('active')
+    light.classList.remove('active');
+    dark.classList.add('active');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#22252d');
 }
 
 
