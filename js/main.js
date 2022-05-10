@@ -34,7 +34,7 @@ light.addEventListener("click", function () {
     document.body.classList.add('light');
     dark.classList.remove('active');
     light.classList.add('active');
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff');
 });
 
 dark.addEventListener("click", function (e) {
@@ -48,7 +48,7 @@ dark.addEventListener("click", function (e) {
 if (document.body.classList.contains('light')) {
     dark.classList.remove('active');
     light.classList.add('active');
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff');
 } else {
     light.classList.remove('active');
     dark.classList.add('active');
