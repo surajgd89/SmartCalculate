@@ -3,14 +3,6 @@
     padding: 0;
 }
 
-:root {
-    --text: #2b3044;
-    --line: #275efe;
-    --font-size: 16px;
-    --duration: 0.44s;
-    --duration-line: 0.84s;
-}
-
 * {
     box-sizing: inherit;
     &:before,
@@ -49,11 +41,20 @@ body {
 
         .content {
             margin: auto;
+            @media (max-width: 767px) {
+                width: 100%;
+                margin: 0;
+                background: var(--primary);
+            }
             .calculator {
-                border-radius: 20px;
+                border-radius: 20px 20px 0 0;
                 background: var(--primary);
                 box-shadow: 0 0 6px 4px var(--shadow);
                 padding: 5px;
+
+                @media (max-width: 767px) {
+                    border-radius: 0;
+                }
 
                 .screen {
                     background: var(--primary);
@@ -189,71 +190,22 @@ body {
             }
             .app-name {
                 text-align: center;
-                font-size: 15px;
-                margin-top: 20px;
-                color: var(--text);
-                font-size: var(--font-size);
-                line-height: var(--font-size);
+                font-size: 12px;
+                padding-top: 5px;
+                padding-bottom: 10px;
+                border-radius: 0 0 20px 20px;
+                background: var(--primary);
+                color: var(--color);
+
+                @media (max-width: 767px) {
+                    border-radius: 0;
+                }
 
                 .link {
                     display: inline-block;
                     position: relative;
-                    text-decoration: none;
-                    color: var(--text);
-                    div {
-                        overflow: hidden;
-                        &:first-child {
-                            display: flex;
-                            overflow: hidden;
-                            text-shadow: 0 var(--font-size) 0 var(--text);
-                        }
-                        &:last-child {
-                            position: absolute;
-                            pointer-events: none;
-                            right: 0;
-                            left: 0;
-                            bottom: -3px;
-                            height: 5px;
-                            svg {
-                                display: block;
-                                position: absolute;
-                                right: 0;
-                                top: 0;
-                                width: 300%;
-                                height: 5px;
-                                fill: none;
-                                stroke: var(--line);
-                                stroke-width: 1.5px;
-                                stroke-linecap: round;
-                                stroke-dasharray: 63.5px 128px;
-                                stroke-dashoffset: var(--line-offset, 190.25px);
-                                transform: translateX(var(--line-x))
-                                    translateZ(0);
-                                transition: transform var(--line-d, 0s),
-                                    stroke-dashoffset var(--line-d, 0s);
-                            }
-                        }
-                        span {
-                            display: block;
-                            backface-visibility: hidden;
-                            font-style: normal;
-                            transition: transform var(--duration) ease;
-                            transform: translateY(var(--m, 0));
-                            $i: 1;
-                            @while $i < 12 {
-                                &:nth-child(#{$i}) {
-                                    transition-delay: $i / 20 + s;
-                                }
-                                $i: $i + 1;
-                            }
-                        }
-                    }
-                    &:hover {
-                        --m: calc(var(--font-size) * -1);
-                        --line-d: var(--duration-line);
-                        --line-x: 65.66%;
-                        --line-offset: 63.5px;
-                    }
+                    text-decoration: underline;
+                    color: #275efe;
                 }
             }
         }
