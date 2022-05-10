@@ -21,6 +21,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.5;
     min-height: 100%;
+    color: var(--primary);
 
     &.dark {
         --primary: #22252d;
